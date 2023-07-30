@@ -15,7 +15,7 @@ export const StyledAbsoluteDropDown = styled.div<{ isVisible: boolean }>`
   background-color: white;
   visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
   max-height: 50vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 export const StyledDropDownButtonsContainer = styled.div`
