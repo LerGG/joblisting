@@ -1,33 +1,27 @@
-import type { AppProps } from 'next/app'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`
-
-interface ThemeInterface {
-  colors: {
-    primary: string
-  }
-}
-
-const theme: ThemeInterface = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "styled-components";
+import Layout from "../components/Layout";
+import { theme } from "../theme/theme";
+import { GlobalStyle } from "../theme/GlobalStyle";
+import { gotham_medium } from "../fonts/gotham_medium";
+import Head from "next/head";
+import { VisibilityProvider } from "../context/VisibilityProvider";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <meta name="locale" content="de" />
+      </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <Layout customfont={gotham_medium}>
+          <VisibilityProvider>
+            <Component {...pageProps} />
+          </VisibilityProvider>
+        </Layout>
       </ThemeProvider>
     </>
-  )
+  );
 }
