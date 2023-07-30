@@ -14,7 +14,6 @@ import {
 } from "./jobs.styles";
 import Image from "next/image";
 import { JobEntry } from "../../interfaces/interfaces";
-import Link from "next/link";
 
 interface JobCardProps {
   job: JobEntry;
@@ -22,8 +21,7 @@ interface JobCardProps {
 
 export default function JobCard({ job }: JobCardProps) {
   return (
-    <StyledJobCardContainer>
-      <Link href="./"></Link>
+    <StyledJobCardContainer href={`#anchor-${job.title}`}>
       <StyledJobCardWrapper>
         <StyledJobCategory>
           <StyledText color={theme.colors.primary} size="15px">

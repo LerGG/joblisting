@@ -4,6 +4,7 @@ import { StyledText } from "../Basic/StyledText";
 import { FullWidthWrapper } from "../Basic/FullWidthWrapper";
 import { ContentContainer } from "../Basic/ContentContainer";
 import { StyledFlexBox } from "../Basic/StyledFlexBox";
+import Link from "next/link";
 
 /**
  * JobCard Components
@@ -152,7 +153,8 @@ export const StyledShowMoreButton = styled.button`
   }
 `;
 
-export const StyledJobCardContainer = styled.div`
+export const StyledJobCardContainer = styled(Link)`
+  text-decoration: none;
   height: 145px;
   min-width: 98%;
   border: 1px solid ${theme.border_colors.grey_light};
